@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef } from "react";
 import produce from "immer";
 import "./App.css";
 
+
 const numRows = 30;
 const numColumns = 50;
 
@@ -133,6 +134,7 @@ function App() {
           }}
         >
           {running ? <i class="fas fa-pause" /> : <i class="fas fa-play" />}
+          <h2>Play / Pause</h2>
         </button>
         {/* <button
           onClick={() => {
@@ -149,6 +151,7 @@ function App() {
             setGrid(emptyGrid());
           }}
         >
+          <h2>Erase</h2>
           <i class="fas fa-redo" />
         </button>
         <button
@@ -165,6 +168,7 @@ function App() {
             setGrid(rows);
           }}
         >
+          <h2>Random</h2>
           <i class="fas fa-question" />
         </button>
       </div>
