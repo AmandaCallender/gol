@@ -17,9 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",    
-    "deploy": "gh-pages -b Amanda -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,7 +28,6 @@
       "not dead",
       "not op_mini all"
     ],
-    "homepage": "https://github.com/amandacallender/amandacallender.github.io/gol/",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
