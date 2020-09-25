@@ -5,7 +5,6 @@ import "./App.css";
 
 const numRows = 30;
 const numColumns = 50;
-let generation = 0;
 
 
 //operations for checking neighbors across the grid
@@ -22,18 +21,15 @@ const neighborOps = [
 
 const emptyGrid = () => {
   const rows = [];
-  let generation = 0;
   // creating the grid!
   for (let i = 0; i < numRows; i++) {
     rows.push(Array.from(Array(numColumns), () => 0));
   }
-  console.log(generation);
   return rows;
 };
 
 function App() {
   const [running, setRunning] = useState(false);
-  // const [speed, setSpeed] = useState(1000);
   const [grid, setGrid] = useState(() => {
     return emptyGrid();
   });
@@ -77,8 +73,6 @@ function App() {
             } else if (g[i][j] === 0 && neighbors === 3) {
               gridCopy[i][j] = 1;
             } 
-            generation = generation + 1;
-            console.log(generation);
           }
         }
       });
@@ -121,16 +115,6 @@ function App() {
         )}
       </div>
       <div className="button-container">
-        {/* <button
-          onClick={() => {
-            if (speed <= 5000) {
-              setSpeed(speed + 100);
-              console.log(speed);
-            }
-          }}
-        >
-          <h2>Fast Forward</h2>
-        </button>  */}
         {/*changes the state to determine whether the game is running or not*/}
         <button
           onClick={() => {
@@ -143,20 +127,9 @@ function App() {
         >
           <h2>Play / Pause</h2>
         </button>
-        {/* <button
-          onClick={() => {
-            if (speed >= 100) {
-              setSpeed(speed - 100);
-              console.log(speed);
-            }
-          }}
-        >
-          <h2>Reverse</h2>
-        </button> */}
         <button
           onClick={() => {
             setGrid(emptyGrid());
-            generation = 0;
           }}
         >
           <h2>Erase</h2>
@@ -171,7 +144,6 @@ function App() {
                 )
               );
             }
-
             setGrid(rows);
           }}
         >
