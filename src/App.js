@@ -5,6 +5,8 @@ import "./App.css";
 
 const numRows = 30;
 const numColumns = 50;
+let generation = 0;
+
 
 //operations for checking neighbors across the grid
 const neighborOps = [
@@ -20,10 +22,12 @@ const neighborOps = [
 
 const emptyGrid = () => {
   const rows = [];
+  let generation = 0;
   // creating the grid!
   for (let i = 0; i < numRows; i++) {
     rows.push(Array.from(Array(numColumns), () => 0));
   }
+  console.log(generation);
   return rows;
 };
 
@@ -44,6 +48,8 @@ function App() {
       return;
     }
     //Otherwise, call the function recursively to update the state
+
+    
 
     setGrid((g) => {
       // the current grid is set to g
@@ -70,7 +76,9 @@ function App() {
               gridCopy[i][j] = 0;
             } else if (g[i][j] === 0 && neighbors === 3) {
               gridCopy[i][j] = 1;
-            }
+            } 
+            generation = generation + 1;
+            console.log(generation);
           }
         }
       });
@@ -80,10 +88,10 @@ function App() {
   }, []);
 
   return (
-    <div class="page-container">
+    <div className="page-container">
       <h1>Game Of Life</h1>
       <div
-        class="grid-display"
+        className="grid-display"
         style={{
           display: "grid",
           gridTemplateColumns: `repeat(${numColumns}, 20px`,
@@ -112,7 +120,7 @@ function App() {
           ))
         )}
       </div>
-      <div class="button-container">
+      <div className="button-container">
         {/* <button
           onClick={() => {
             if (speed <= 5000) {
@@ -121,8 +129,8 @@ function App() {
             }
           }}
         >
-          <i class="fas fa-backward" />
-        </button> */} 
+          <h2>Fast Forward</h2>
+        </button>  */}
         {/*changes the state to determine whether the game is running or not*/}
         <button
           onClick={() => {
@@ -133,7 +141,6 @@ function App() {
             }
           }}
         >
-          {running ? <i class="fas fa-pause" /> : <i class="fas fa-play" />}
           <h2>Play / Pause</h2>
         </button>
         {/* <button
@@ -144,15 +151,15 @@ function App() {
             }
           }}
         >
-          <i class="fas fa-fast-forward" />
+          <h2>Reverse</h2>
         </button> */}
         <button
           onClick={() => {
             setGrid(emptyGrid());
+            generation = 0;
           }}
         >
           <h2>Erase</h2>
-          <i class="fas fa-redo" />
         </button>
         <button
           onClick={() => {
@@ -168,11 +175,10 @@ function App() {
             setGrid(rows);
           }}
         >
-          <h2>Random</h2>
-          <i class="fas fa-question" />
+          <h2>Randomize</h2>
         </button>
       </div>
-      <div class="description">
+      <div className="description">
         <div>
           <h2>Description</h2>
           <ul>
@@ -187,7 +193,7 @@ function App() {
           </ul>
         </div>
       </div>
-      <div class="description">
+      <div className="description">
         <div>
           <h2>Instructions</h2>
           <ol>
