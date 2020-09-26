@@ -83,7 +83,7 @@ function App() {
 
   return (
     <div className="page-container">
-      <h1>Game Of Life</h1>
+      <h1>The Game Of Life</h1>
       <div
         className="grid-display"
         style={{
@@ -152,7 +152,7 @@ function App() {
       </div>
       <div className="description">
         <div>
-          <h2>Description</h2>
+          <h2>The Rules</h2>
           <ul>
             <p>Any live cell with two or three live neighbours survives.</p>
             <p>
@@ -170,11 +170,10 @@ function App() {
           <h2>Instructions</h2>
           <ol>
             <li>Click on any cell to make it "alive".</li>
-            <li>Click play to see how your simulation plays out!</li>
-            <li>
-              You can change the speed, and even create a random simulation using the
-              buttons.
-            </li>
+            <li>Click Play to see how your simulation plays out!</li>
+            <p>
+              Unsure of what configuration you want to simulate first? Try a basic line of 9 cells. You can also create a random simulation by pressing the Randomize button!
+            </p>
           </ol>
         </div>
       </div>
