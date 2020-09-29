@@ -5,6 +5,7 @@ import "./App.css";
 
 const numRows = 30;
 const numColumns = 50;
+let generation = 0;
 
 
 //operations for checking neighbors across the grid
@@ -46,6 +47,7 @@ function App() {
     //Otherwise, call the function recursively to update the state
 
     
+    generation++;
 
     setGrid((g) => {
       // the current grid is set to g
@@ -129,6 +131,7 @@ function App() {
         </button>
         <button
           onClick={() => {
+            generation = 0;
             setGrid(emptyGrid());
           }}
         >
@@ -136,6 +139,7 @@ function App() {
         </button>
         <button
           onClick={() => {
+            
             const rows = [];
             for (let i = 0; i < numRows; i++) {
               rows.push(
@@ -149,6 +153,9 @@ function App() {
         >
           <h2>Randomize</h2>
         </button>
+      </div>
+      <div className="description">
+        <h2>Generation: {`${generation}`}</h2>
       </div>
       <div className="description">
         <div>
